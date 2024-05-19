@@ -9,3 +9,15 @@ This section provides guidance on how to utilize the newly integrated livestream
 To get started, ensure that you have the latest version of the streaming-translated-extension installed. Follow the setup instructions provided in the `implementation.md` document to integrate the feature into your livestream setup. Once integrated, the feature will automatically transcribe and translate the spoken content in your livestream, displaying the translated text to your viewers in real-time.
 
 For more detailed information on the technical implementation and to view examples of API calls and responses, please refer to the `implementation.md` document.
+
+## Interacting with the Chat Bot through the Web Interface
+
+To enhance your experience with our chat bot, we have introduced a simple HTML web interface, detailed in the file `chat_interface.html`. This interface allows for direct interaction with the chat bot through a user-friendly web page.
+
+### How to Use
+
+1. Open the file `chat_interface.html` in a web browser.
+2. Enter your message in the text field provided and click the "Send" button to submit your query to the chat bot.
+3. The chat bot's response will be displayed directly on the page, allowing for a seamless conversation.
+
+This web interface provides an accessible way to communicate with our chat bot, making it easier for users to engage with and benefit from the bot's capabilities.

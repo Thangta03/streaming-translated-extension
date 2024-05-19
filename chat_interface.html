@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Interface</title>
+</head>
+<body>
+    <h2>Chat with our Bot</h2>
+    <form id="chatForm">
+        <input type="text" id="userInput" placeholder="Type your message here..." required>
+        <button type="submit">Send</button>
+    </form>
+    <div id="chatArea"></div>
+
+    <script>
+        document.getElementById('chatForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const userInput = document.getElementById('userInput').value;
+            fetch('API_ENDPOINT', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ message: userInput }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                const chatArea = document.getElementById('chatArea');
+                const message = document.createElement('p');
+                message.textContent = `Bot: ${data.response}`;
+                chatArea.appendChild(message);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+            document.getElementById('userInput').value = ''; // Clear input field after sending
+        });
+    </script>
+</body>
+</html>
