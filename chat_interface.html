@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat Interface</title>
+    <script src="chat.js"></script>
 </head>
 <body>
     <h2>Chat with our Bot</h2>
@@ -17,18 +18,11 @@
         document.getElementById('chatForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const userInput = document.getElementById('userInput').value;
-            fetch('API_ENDPOINT', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ message: userInput }),
-            })
-            .then(response => response.json())
-            .then(data => {
+            // Updated to use sendMessage function from chat.js
+            sendMessage('chatId', userInput).then(response => {
                 const chatArea = document.getElementById('chatArea');
                 const message = document.createElement('p');
-                message.textContent = `Bot: ${data.response}`;
+                message.textContent = `Bot: ${response.text}`;
                 chatArea.appendChild(message);
             })
             .catch((error) => {
